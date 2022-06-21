@@ -4,6 +4,7 @@ import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class CollectionTestSuite {
@@ -54,14 +55,12 @@ public class CollectionTestSuite {
         //When
         List<Integer> list2 = oddNumbersExterminator.exterminate(list);
         //Then
-        boolean checkList = true;
-        for (Integer number : list2){
-            if(number % 2 != 0){
-                checkList = false;
-                break;
-            }
-        }
-        Assertions.assertTrue(checkList);
+        List<Integer> expected = Arrays.asList(108,34,52);
+
+        Collections.sort(list2);
+        Collections.sort(expected);
+
+        Assertions.assertTrue(list2.equals(expected));
 
     }
 
