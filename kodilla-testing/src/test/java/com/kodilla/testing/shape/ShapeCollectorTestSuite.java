@@ -30,7 +30,7 @@ public class ShapeCollectorTestSuite {
     void testAddFigure() {
         //Given
         ShapeCollector shapeCollector = new ShapeCollector();
-        Shape shape = new Square();
+        Shape shape = new Square(50);
         //When
         shapeCollector.addFigure(shape);
         //Then
@@ -42,7 +42,7 @@ public class ShapeCollectorTestSuite {
     void testRemoveFigure(){
         //Given
         ShapeCollector shapeCollector = new ShapeCollector();
-        Shape shape = new Circle();
+        Shape shape = new Circle(32);
         //When
         shapeCollector.addFigure(shape);
         Assertions.assertEquals(1, shapeCollector.list.size());
@@ -57,7 +57,7 @@ public class ShapeCollectorTestSuite {
     void  testGiveFigure(){
         //Given
         ShapeCollector shapeCollector = new ShapeCollector();
-        Shape shape = new Triangle();
+        Shape shape = new Triangle(44);
         //When
         shapeCollector.addFigure(shape);
         //Then
@@ -71,7 +71,7 @@ public class ShapeCollectorTestSuite {
     void testGiveFigureMinusIndex(){
         //Given
         ShapeCollector shapeCollector = new ShapeCollector();
-        Shape shape = new Triangle();
+        Shape shape = new Triangle(32);
         //When
         shapeCollector.addFigure(shape);
         //Then
@@ -86,7 +86,7 @@ public class ShapeCollectorTestSuite {
     void testGiveFigureOverSizeIndex(){
         //Given
         ShapeCollector shapeCollector = new ShapeCollector();
-        Shape shape = new Triangle();
+        Shape shape = new Triangle(44);
         //When
         shapeCollector.addFigure(shape);
         //Then
@@ -99,13 +99,13 @@ public class ShapeCollectorTestSuite {
     void testShowFigures(){
         //Given
         ShapeCollector shapeCollector = new ShapeCollector();
-        Shape shape1 = new Triangle();
+        Shape shape1 = new Circle(33);
         shapeCollector.addFigure(shape1);
         shapeCollector.addFigure(shape1);
         //When
         String result = shapeCollector.showFigures();
         //Then
-        Assertions.assertTrue(result.equals("Triangle, Traingle."));
+        Assertions.assertTrue(result.equals("Circle Circle "));
 
     }
 
